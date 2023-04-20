@@ -1,0 +1,29 @@
+.pokemon-favorites-bg {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 30px;
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+
+    section {
+        width: 100%;
+        max-width: 1350px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}
+
+mat-card {
+    width: 280px;
+    height: 180px;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        transition: all 225ms ease-in-out;
+    }
+}

@@ -1,0 +1,9 @@
+<div class="pokemon-list-bg">
+    <section>
+        <mat-card *ngFor="let pokemon of pokemon">
+            <mat-card-content>
+                <app-pokemon [url]="pokemon.url"></app-pokemon>
+            </mat-card-content>
+        </mat-card>
+    </section>
+</div>
