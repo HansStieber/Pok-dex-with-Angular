@@ -1,6 +1,6 @@
 <div class="pokemon-list-bg">
     <section>
-        <mat-card *ngFor="let pokemon of allPokemon">
+        <mat-card *ngFor="let pokemon of allPokemon | filter: search">
             <mat-card-content>
                 <app-pokemon [url]="pokemon.url"></app-pokemon>
             </mat-card-content>

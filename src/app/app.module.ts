@@ -23,6 +23,8 @@ import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonFavoritesComponent } from './pokemon-favorites/pokemon-favorites.component';
 import { DetailViewComponent } from './detail-view/detail-view.component';
 import { SearchService } from './services/search.service';
+import { PokemonService } from './services/pokemon.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -54,9 +56,11 @@ import { SearchService } from './services/search.service';
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
+    Ng2SearchPipeModule
   ],
   providers: [
-    SearchService
+    SearchService,
+    PokemonService
   ],
   bootstrap: [AppComponent]
 })

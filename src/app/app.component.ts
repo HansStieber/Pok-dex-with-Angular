@@ -9,7 +9,7 @@ import { SearchService } from './services/search.service';
 export class AppComponent {
   title = 'poke-api';
   value = '';
-  search: string | undefined;
+  search!: string;
   @ViewChild('pokesearch') pokesearch!: ElementRef;
 
 
@@ -18,6 +18,7 @@ export class AppComponent {
   ngOnInit() {
     this.data.currentSearch.subscribe(search => {
       this.search = search
+      //console.log(this.search)
     });
   }
 
