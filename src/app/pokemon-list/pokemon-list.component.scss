@@ -2,7 +2,6 @@
     width: 100%;
     min-height: 100vh;
     margin-top: 30px;
-    padding: 0 16px;
     display: flex;
     justify-content: center;
 
@@ -36,4 +35,31 @@ mat-card-content {
     height: 100%;
     padding: 0 !important;
     border-radius: 20px;
+}
+
+
+.loader-container {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.loader img {
+    width: 100px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

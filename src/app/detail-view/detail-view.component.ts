@@ -9,8 +9,12 @@ import { Details } from '../models/details.class';
 })
 export class DetailViewComponent implements OnInit {
 details!: Details;
+types: any;
+type!: string;
 
 ngOnInit(): void {
+  this.types = this.details.types[0];
+  this.type = this.types['type']['name'];
   console.log('details from detail-view', this.details)
 }
 }

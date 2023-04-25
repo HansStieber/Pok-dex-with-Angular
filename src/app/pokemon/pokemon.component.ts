@@ -27,7 +27,7 @@ export class PokemonComponent {
         this.details = new Details(data);
         this.types = this.details.types[0];
         this.type = this.types['type']['name'];
-        console.log(this.details)
+        //console.log(this.details)
       });
       
   }

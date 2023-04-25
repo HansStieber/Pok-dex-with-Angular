@@ -10,3 +10,71 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     box-sizing: border-box !important;
 }
+
+.grass {
+    background-color: rgb(73, 208, 176);
+}
+
+.fire {
+    background-color: rgb(251, 108, 108);
+}
+
+.water {
+    background-color: rgb(118, 189, 254);
+}
+
+.bug {
+    background-color: rgb(118 226 118);
+}
+
+.normal {
+    background-color: rgb(242, 212, 174);
+}
+
+.poison {
+    background-color: rgb(246, 47, 246);
+}
+
+.electric {
+    background-color: rgb(255, 217, 0);
+}
+
+.ground {
+    background-color: rgb(184, 149, 103);
+}
+
+.fairy {
+    background-color: rgb(255, 200, 200);
+}
+
+.fighting {
+    background-color: rgb(147, 45, 45);
+}
+
+.psychic {
+    background-color: rgb(156, 0, 156);
+}
+
+.rock {
+    background-color: grey;
+}
+
+.ghost {
+    background-color: rgb(72, 65, 65);
+}
+
+.ice {
+    background-color: rgb(184, 184, 255);
+}
+
+.dragon {
+    background-color: rgb(157, 201, 124);
+}
+
+.dark {
+    background-color: black;
+}
+
+.steel {
+    background-color: lightgrey;
+}

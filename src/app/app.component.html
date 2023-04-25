@@ -20,7 +20,7 @@
             </button>
             <mat-form-field class="example-form-field margin-bottom-27px">
                 <mat-label>Search Pokémon</mat-label>
-                <input #pokesearch matInput type="text" [(ngModel)]="value">
+                <input #pokesearch id="search" matInput type="text" [(ngModel)]="value" (keyup)="onKeyUpEvent($event)">
                 <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                     <mat-icon>close</mat-icon>
                 </button>

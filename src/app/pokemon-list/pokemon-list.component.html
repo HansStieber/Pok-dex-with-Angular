@@ -1,9 +1,13 @@
 <div class="pokemon-list-bg">
     <section>
-        <mat-card *ngFor="let pokemon of pokemon">
+        <mat-card *ngFor="let pokemon of allPokemon">
             <mat-card-content>
                 <app-pokemon [url]="pokemon.url"></app-pokemon>
             </mat-card-content>
         </mat-card>
     </section>
+</div>
+
+<div *ngIf="loading" class="loader-container">
+    <div class="loader"><img src="../../assets/img/pokeball-icon.png"></div>
 </div>
