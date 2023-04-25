@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { SearchService } from './services/search.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +9,17 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class AppComponent {
   title = 'poke-api';
   value = '';
-  public search = '';
+  search: string | undefined;
   @ViewChild('pokesearch') pokesearch!: ElementRef;
 
 
-  constructor() { }
+  constructor(private data: SearchService) { }
+
+  ngOnInit() {
+    this.data.currentSearch.subscribe(search => {
+      this.search = search
+    });
+  }
 
 
   focusSearchInput() {
@@ -21,7 +28,7 @@ export class AppComponent {
 
 
   public onKeyUpEvent(event: any) {
-    this.search = this.pokesearch.nativeElement.value.toLowerCase();
-    console.log(this.search)
+    let searchValue = this.pokesearch.nativeElement.value.toLowerCase();
+    this.data.changeSearch(searchValue);
   }
 }

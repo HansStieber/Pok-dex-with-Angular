@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Pokemon } from '../models/pokemon.class';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,10 @@ export class PokemonListComponent {
   NEXT_URL = ''
   value = '';
   loading = false;
+  search: string | undefined;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private data: SearchService) { }
 
 
   ngOnInit() {
@@ -31,9 +33,14 @@ export class PokemonListComponent {
         this.NEXT_URL = data['next'];
         this.checkEndOfPage();
         setTimeout(() => {
-      this.loading = false;
+          this.loading = false;
         }, 1000);
       });
+      
+    this.data.currentSearch.subscribe(search => {
+      this.search = search
+      console.log(this.search)
+    });
   }
 
   pushObjects(sourceArray: Pokemon[], targetArray: Pokemon[]) {
@@ -63,7 +70,7 @@ export class PokemonListComponent {
           this.NEXT_URL = data['next'];
           console.log(this.allPokemon)
           setTimeout(() => {
-        this.loading = false;
+            this.loading = false;
           }, 1000);
         });
       if (scrollLimitBottom <= 0) {
@@ -76,6 +83,4 @@ export class PokemonListComponent {
   closeToEndOfPage(scrollPos: number, scrollLimitBottom: number) {
     return scrollPos >= scrollLimitBottom;
   }
-
-
 }

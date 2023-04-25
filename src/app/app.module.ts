@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonComponent } from './pokemon/pokemon.component';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,6 +22,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 import { PokemonFavoritesComponent } from './pokemon-favorites/pokemon-favorites.component';
 import { DetailViewComponent } from './detail-view/detail-view.component';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +55,9 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
     MatCardModule,
     MatMenuModule,
   ],
-  providers: [],
+  providers: [
+    SearchService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
