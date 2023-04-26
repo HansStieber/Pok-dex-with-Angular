@@ -18,9 +18,9 @@
             <button (click)="focusSearchInput()" mat-icon-button>
                 <mat-icon>search</mat-icon>
             </button>
-            <mat-form-field class="example-form-field margin-bottom-27px">
+            <mat-form-field class="search-form-field margin-bottom-27px">
                 <mat-label>Search Pokémon</mat-label>
-                <input #pokesearch id="search" matInput type="text" [(ngModel)]="value" (keyup)="onKeyUpEvent($event)">
+                <input #pokesearch matInput type="text" [(ngModel)]="value" (keyup)="onKeyUpEvent()">
                 <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                     <mat-icon>close</mat-icon>
                 </button>

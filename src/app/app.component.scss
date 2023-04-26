@@ -2,9 +2,14 @@ mat-toolbar {
     display: flex;
     justify-content: center;
     height: 60px;
+    padding: 0 32px 0 16px;
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
+}
+
+.search-form-field {
+    width: 250px;
 }
 
 nav {

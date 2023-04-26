@@ -17,8 +17,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.data.currentSearch.subscribe(search => {
-      this.search = search
-      //console.log(this.search)
+      this.search = search;
     });
   }
 
@@ -28,7 +27,7 @@ export class AppComponent {
   }
 
 
-  public onKeyUpEvent(event: any) {
+  public onKeyUpEvent() {
     let searchValue = this.pokesearch.nativeElement.value.toLowerCase();
     this.data.changeSearch(searchValue);
   }

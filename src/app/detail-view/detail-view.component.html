@@ -5,4 +5,6 @@
 
     </mat-dialog-content>
     <button mat-icon-button [mat-dialog-close]="true"><mat-icon>close</mat-icon></button>
+    <button *ngIf="id !== 1" mat-icon-button (click)="previousPokemon()"><mat-icon>arrow_back_ios</mat-icon></button>
+    <button mat-icon-button (click)="nextPokemon()"><mat-icon>arrow_forward_ios</mat-icon></button>
 </div>
