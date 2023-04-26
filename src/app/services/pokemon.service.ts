@@ -1,4 +1,3 @@
-import { ArrayType } from "@angular/compiler";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { Pokemon } from "../models/pokemon.class";

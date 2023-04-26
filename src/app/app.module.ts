@@ -25,6 +25,7 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
 import { SearchService } from './services/search.service';
 import { PokemonService } from './services/pokemon.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FavoritesService } from './services/favorites.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   ],
   providers: [
     SearchService,
-    PokemonService
+    PokemonService,
+    FavoritesService
   ],
   bootstrap: [AppComponent]
 })

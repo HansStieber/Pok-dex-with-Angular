@@ -1,7 +1,8 @@
 <div class="pokemon-favorites-bg">
     <section>
-        <mat-card>
+        <mat-card *ngFor="let pokemon of favorites | filter: search">
             <mat-card-content>
+                <app-pokemon [url]="pokemon.url"></app-pokemon>
             </mat-card-content>
         </mat-card>
     </section>
