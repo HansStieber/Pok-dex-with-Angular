@@ -18,7 +18,7 @@ export class DetailViewComponent implements OnInit {
   id!: number;
   favorites: Pokemon[] = [];
   currentPokemon: Pokemon | undefined;
-  notFavorite: boolean = true;
+  alreadyFavorite: boolean = false;
 
   constructor(private http: HttpClient, private data: PokemonService, private favoritesData: FavoritesService) { }
 
@@ -32,10 +32,7 @@ export class DetailViewComponent implements OnInit {
     this.types = this.details.types[0];
     this.type = this.types['type']['name'];
     this.id = this.details.id;
-    this.currentPokemon = new Pokemon(this.allPokemon[this.details.id - 1]);
-    if (this.favorites.includes(this.currentPokemon)) {
-      this.notFavorite = false;
-    }
+    this.checkIfPokemonIsFavorite();
   }
 
 
@@ -48,6 +45,7 @@ export class DetailViewComponent implements OnInit {
         this.types = this.details.types[0];
         this.type = this.types['type']['name'];
         this.id = this.details.id;
+        this.checkIfPokemonIsFavorite();
       });
   }
 
@@ -60,6 +58,7 @@ export class DetailViewComponent implements OnInit {
         this.types = this.details.types[0];
         this.type = this.types['type']['name'];
         this.id = this.details.id;
+        this.checkIfPokemonIsFavorite();
       });
   }
 
@@ -77,7 +76,29 @@ export class DetailViewComponent implements OnInit {
 
   addToFavorites() {
     let newFavoritePokemon = new Pokemon(this.allPokemon[this.details.id - 1]);
-    this.favoritesData.changeFavorites(newFavoritePokemon)
-    console.log(this.favorites)
+    if (!this.favorites.some(pokemon => pokemon.name === newFavoritePokemon.name)) {
+      this.favoritesData.addFavorites(newFavoritePokemon);
+      this.alreadyFavorite = true;
+      let serializedArray = JSON.stringify(this.favorites);
+      localStorage.setItem('favorite-pokemon', serializedArray);
+    }
+
+  }
+
+
+  removeFromFavorites() {
+    this.favoritesData.removeFavorites(this.details);
+    this.alreadyFavorite = false;
+    let serializedArray = JSON.stringify(this.favorites);
+    localStorage.setItem('favorite-pokemon', serializedArray);
+  }
+
+
+  checkIfPokemonIsFavorite() {
+    if (this.favorites.some(pokemon => pokemon.name === this.details.name)) {
+      this.alreadyFavorite = true;
+    } else {
+      this.alreadyFavorite = false;
+    }
   }
 }

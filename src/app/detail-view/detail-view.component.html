@@ -1,6 +1,7 @@
 <div class="detail-card  {{ type }}">
     <h2 mat-dialog-title>{{ details.name }}</h2>
-    <button *ngIf="notFavorite" mat-icon-button (click)="addToFavorites()"><mat-icon>favorite_border</mat-icon></button>
+    <button *ngIf="!alreadyFavorite" mat-icon-button (click)="addToFavorites()"><mat-icon>favorite_border</mat-icon></button>
+    <button *ngIf="alreadyFavorite" mat-icon-button (click)="removeFromFavorites()"><mat-icon>favorite</mat-icon></button>
     <mat-dialog-content class="mat-typography">
 
     </mat-dialog-content>
