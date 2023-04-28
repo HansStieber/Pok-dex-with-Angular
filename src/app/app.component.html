@@ -1,3 +1,5 @@
+<div class="bg">
+</div>
 <mat-toolbar color="primary">
     <nav>
         <div>
@@ -10,8 +12,8 @@
             </mat-menu>
             <span>Pokédex</span>
             <span class="example-spacer"></span>
-            <button mat-icon-button [routerLink]="['/favorites']">
-                <mat-icon>favorite_border</mat-icon>
+            <button class="red-button" mat-icon-button [routerLink]="['/favorites']">
+                <mat-icon>favorite</mat-icon>
             </button>
         </div>
         <div>
@@ -28,6 +30,10 @@
         </div>
     </nav>
 </mat-toolbar>
+
+<div *ngIf="loading" class="loader-container">
+    <div class="loader"><img src="../../assets/img/pokeball-icon.png"></div>
+</div>
 
 <router-outlet>
     

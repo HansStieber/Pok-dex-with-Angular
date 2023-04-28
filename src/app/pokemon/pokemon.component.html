@@ -1,3 +1,10 @@
-<div  class="card-content {{ type }}" (click)="openDialog()">
-    <h2>{{ details.name }}</h2> 
+<div class="card-content {{ type }}" (click)="openDialog()">
+    <span>{{ name }}</span>
+    <div class="types-container">
+        <div *ngFor="let type of types">
+            <div class="type-container">{{ type['type']['name'] }}</div>
+        </div>
+    </div>
+    <img class="pokeball-img" src="../../assets/img/pokeball.jpg">
+    <img class="pokemon-img" [src]="sanitizeImageUrl(imgUrl)">
 </div>

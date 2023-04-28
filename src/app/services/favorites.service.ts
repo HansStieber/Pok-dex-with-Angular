@@ -21,7 +21,6 @@ export class FavoritesService {
 
     removeFavorites(details: Details) {
         const currentFavorites = this.favoritesSource.getValue();
-        console.log(currentFavorites)
         const index = currentFavorites.findIndex(p => p.name === details.name);
         if (index !== -1) {
             currentFavorites.splice(index, 1);

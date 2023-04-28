@@ -26,6 +26,7 @@ import { SearchService } from './services/search.service';
 import { PokemonService } from './services/pokemon.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FavoritesService } from './services/favorites.service';
+import { CapitalizeService } from './services/capitalize.service';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { FavoritesService } from './services/favorites.service';
   providers: [
     SearchService,
     PokemonService,
-    FavoritesService
+    FavoritesService,
+    CapitalizeService
   ],
   bootstrap: [AppComponent]
 })
