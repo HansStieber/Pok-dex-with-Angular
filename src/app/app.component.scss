@@ -1,4 +1,7 @@
 mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 99;
     display: flex;
     justify-content: center;
     height: 60px;
