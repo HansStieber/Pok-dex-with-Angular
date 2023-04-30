@@ -1,0 +1,26 @@
+<mat-tab-group animationDuration="0ms">
+    <mat-tab label="About">
+        <table>
+            <tr>
+                <td><b>Base xp</b></td>
+                <td>{{ baseXp }}</td>
+            </tr>
+            <tr>
+                <td><b>Height</b></td>
+                <td><span>{{ height }}</span> m</td>
+            </tr>
+            <tr>
+                <td><b>Weight</b></td>
+                <td><span>{{ weight }}</span> kg</td>
+            </tr>
+        </table>
+    </mat-tab>
+    <mat-tab label="Base Stats">
+        <div class="stat-container">
+            <app-stat [stat]="stat" *ngFor="let stat of stats"></app-stat>
+        </div>
+    </mat-tab>
+    <mat-tab label="Moves">
+
+    </mat-tab>
+</mat-tab-group>

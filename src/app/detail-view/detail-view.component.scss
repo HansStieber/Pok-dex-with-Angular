@@ -1,43 +1,87 @@
 .detail-card {
     color: white;
     position: relative;
-    width: 300px;
-    height: 500px;
+    width: 380px;
+    height: 650px;
     transition: background-color 225ms linear;
 }
 
 .favorite-icon {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
 }
 
 .close-icon {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
 }
 
 .name {
     color: white;
+    font-size: 32px;
+    position: absolute;
+    top: 90px;
+    left: 0;
+}
+
+.id {
+    color: white;
     font-size: 36px;
     position: absolute;
-    top: 70px;
-    left: 0px;
+    top: 90px;
+    right: 0;
 }
 
 .slide-left-icon {
     position: absolute;
     top: 0;
-    bottom: 0;
+    bottom: 50px;
     margin: auto;
     left: 10px;
 }
 
 .slide-right-icon {
     position: absolute;
+    z-index: 2;
     top: 0;
-    bottom: 0;
+    bottom: 50px;
     margin: auto;
     right: 10px;
+}
+
+.stats-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+.pokemon-img {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 130px;
+    margin: auto;
+    width: 230px;
+}
+
+.pokeball-img {
+    position: absolute;
+    right: -20px;
+    top: 0;
+    bottom: 150px;
+    margin: auto;
+    width: 200px;
+    opacity: 0.4;
+    filter: invert(1);
 }

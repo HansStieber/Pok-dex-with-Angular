@@ -21,6 +21,7 @@ export class AppComponent {
   value = '';
   search!: string;
   favorites: Pokemon[] = [];
+  route!: string;
   @ViewChild('pokesearch') pokesearch!: ElementRef;
 
 
@@ -36,6 +37,7 @@ export class AppComponent {
         if (this.router.url === '/pokemon') {
           this.checkEndOfPage();
         }
+        this.setHeadline();
       }
     });
   }
@@ -127,5 +129,15 @@ export class AppComponent {
   public onKeyUpEvent() {
     let searchValue = this.pokesearch.nativeElement.value.toLowerCase();
     this.data.changeSearch(searchValue);
+  }
+
+
+  setHeadline() {
+    if (this.router.url === '/pokemon') {
+      this.route = 'All Pokémon';
+    }
+    if (this.router.url === '/favorites') {
+      this.route = 'Your Favorite Pokémon';
+    }
   }
 }

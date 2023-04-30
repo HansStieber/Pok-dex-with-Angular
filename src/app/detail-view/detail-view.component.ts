@@ -7,6 +7,7 @@ import { FavoritesService } from '../services/favorites.service';
 import { Router } from '@angular/router';
 import { CapitalizeService } from '../services/capitalize.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-detail-view',
@@ -22,13 +23,16 @@ export class DetailViewComponent implements OnInit {
   id!: number;
   favorites: Pokemon[] = [];
   alreadyFavorite: boolean = false;
+  imgUrl!: string;
 
   constructor(
     private dialogRef: MatDialogRef<DetailViewComponent>,
     private http: HttpClient,
     private data: PokemonService,
     private favoritesData: FavoritesService,
-    private router: Router) { }
+    private router: Router,
+    private sanitizer: DomSanitizer
+  ) { }
 
   ngOnInit(): void {
     this.data.pokemon.subscribe(pokemon => {
@@ -41,11 +45,13 @@ export class DetailViewComponent implements OnInit {
     this.type = this.types['type']['name'];
     this.id = this.details.id;
     this.name = this.capitalizeWord(this.details.name);
+    let imgs: any = this.details['sprites'];
+    this.imgUrl = imgs['other']['official-artwork']['front_default'];
     this.checkIfPokemonIsFavorite();
   }
 
 
- capitalizeWord(word: string) {
+  capitalizeWord(word: string) {
     const capitalizeService = new CapitalizeService();
     return capitalizeService.capitalizedWord(word);
   }
@@ -64,6 +70,8 @@ export class DetailViewComponent implements OnInit {
           this.types = this.details.types[0];
           this.type = this.types['type']['name'];
           this.id = this.details.id;
+          let imgs: any = this.details['sprites'];
+          this.imgUrl = imgs['other']['official-artwork']['front_default'];
           this.name = this.capitalizeWord(this.details.name);
           this.checkIfPokemonIsFavorite();
         });
@@ -83,6 +91,8 @@ export class DetailViewComponent implements OnInit {
               this.types = this.details.types[0];
               this.type = this.types['type']['name'];
               this.id = this.details.id;
+              let imgs: any = this.details['sprites'];
+              this.imgUrl = imgs['other']['official-artwork']['front_default'];
               this.name = this.capitalizeWord(this.details.name);
               this.checkIfPokemonIsFavorite();
             });
@@ -101,6 +111,8 @@ export class DetailViewComponent implements OnInit {
           this.types = this.details.types[0];
           this.type = this.types['type']['name'];
           this.id = this.details.id;
+          let imgs: any = this.details['sprites'];
+          this.imgUrl = imgs['other']['official-artwork']['front_default'];
           this.name = this.capitalizeWord(this.details.name);
           this.checkIfPokemonIsFavorite();
         });
@@ -120,6 +132,8 @@ export class DetailViewComponent implements OnInit {
               this.types = this.details.types[0];
               this.type = this.types['type']['name'];
               this.id = this.details.id;
+              let imgs: any = this.details['sprites'];
+              this.imgUrl = imgs['other']['official-artwork']['front_default'];
               this.name = this.capitalizeWord(this.details.name);
               this.checkIfPokemonIsFavorite();
             });
@@ -171,4 +185,9 @@ export class DetailViewComponent implements OnInit {
       this.alreadyFavorite = false;
     }
   }
+
+
+  sanitizeImageUrl(imageUrl: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
+}
 }

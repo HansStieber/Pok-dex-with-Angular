@@ -7,8 +7,7 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
 const routes: Routes = [
   { path: '', component: PokemonListComponent },
   { path: 'pokemon', component: PokemonListComponent },
-  { path: 'favorites', component: PokemonFavoritesComponent },
-  { path: 'pokemon/:id', component: DetailViewComponent }
+  { path: 'favorites', component: PokemonFavoritesComponent }
 ];
 
 @NgModule({

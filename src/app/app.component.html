@@ -10,12 +10,13 @@
               <button mat-menu-item [routerLink]="['/pokemon']">Pokémon</button>
               <button mat-menu-item [routerLink]="['/favorites']">Favorites</button>
             </mat-menu>
-            <span>Pokédex</span>
+            <span class="pokedex">Pokédex</span>
             <span class="example-spacer"></span>
             <button class="red-button" mat-icon-button [routerLink]="['/favorites']">
                 <mat-icon>favorite</mat-icon>
             </button>
         </div>
+        <span class="current-route">{{ route }}</span>
         <div>
             <button (click)="focusSearchInput()" mat-icon-button>
                 <mat-icon>search</mat-icon>

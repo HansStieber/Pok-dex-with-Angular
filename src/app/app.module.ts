@@ -27,6 +27,10 @@ import { PokemonService } from './services/pokemon.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FavoritesService } from './services/favorites.service';
 import { CapitalizeService } from './services/capitalize.service';
+import { StatsTabsComponent } from './stats-tabs/stats-tabs.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { StatComponent } from './stat/stat.component';
+import { StatProgressComponent } from './stat-progress/stat-progress.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import { CapitalizeService } from './services/capitalize.service';
     PokemonComponent,
     PokemonListComponent,
     PokemonFavoritesComponent,
-    DetailViewComponent
+    DetailViewComponent,
+    StatsTabsComponent,
+    StatComponent,
+    StatProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,8 @@ import { CapitalizeService } from './services/capitalize.service';
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatTabsModule
   ],
   providers: [
     SearchService,

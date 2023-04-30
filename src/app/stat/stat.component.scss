@@ -1,0 +1,27 @@
+.stat-row {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.name-container {
+    width: 150px;
+}
+
+.progress-container {
+    position: relative;
+}
+
+.base-progress {
+    position: absolute;
+    left: 0;
+    background-color: #ededed;
+    width: 140px;
+    height: 4px;
+}
+
+app-stat-progress {
+    position: absolute;
+    left: 0;
+    height: 4px;
+}
