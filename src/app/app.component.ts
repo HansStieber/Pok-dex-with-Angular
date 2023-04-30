@@ -112,8 +112,10 @@ export class AppComponent {
 
 
   getFavoritesFromStorage() {
-    let storedFavorites = localStorage.getItem('favorite-pokemon');
-    this.favorites = JSON.parse(storedFavorites!);
+    if (localStorage.getItem('favorite-pokemon') !== null) {
+      let storedFavorites = localStorage.getItem('favorite-pokemon');
+      this.favorites = JSON.parse(storedFavorites!);
+    }
   }
 
 

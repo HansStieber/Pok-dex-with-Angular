@@ -6,5 +6,5 @@
         </div>
     </div>
     <img class="pokeball-img" src="../../assets/img/pokeball.jpg">
-    <img class="pokemon-img" [src]="sanitizeImageUrl(imgUrl)">
+    <img *ngIf="imgUrl" class="pokemon-img" [src]="sanitizeImageUrl(imgUrl)">
 </div>

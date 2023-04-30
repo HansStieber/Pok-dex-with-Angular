@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { FavoritesService } from '../services/favorites.service';
 import { Router } from '@angular/router';
 import { CapitalizeService } from '../services/capitalize.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-detail-view',
@@ -22,7 +23,9 @@ export class DetailViewComponent implements OnInit {
   favorites: Pokemon[] = [];
   alreadyFavorite: boolean = false;
 
-  constructor(private http: HttpClient,
+  constructor(
+    private dialogRef: MatDialogRef<DetailViewComponent>,
+    private http: HttpClient,
     private data: PokemonService,
     private favoritesData: FavoritesService,
     private router: Router) { }
@@ -150,15 +153,19 @@ export class DetailViewComponent implements OnInit {
 
 
   removeFromFavorites() {
+    this.nextPokemon();
     this.favoritesData.removeFavorites(this.details);
     this.alreadyFavorite = false;
     let serializedArray = JSON.stringify(this.favorites);
     localStorage.setItem('favorite-pokemon', serializedArray);
+    if (this.favorites.length == 0) {
+      this.dialogRef.close()
+    }
   }
 
 
   checkIfPokemonIsFavorite() {
-    if (this.favorites.some(pokemon => pokemon.name === this.details.name)) {
+    if (this.favorites && this.favorites.some(pokemon => pokemon.name === this.details.name)) {
       this.alreadyFavorite = true;
     } else {
       this.alreadyFavorite = false;
