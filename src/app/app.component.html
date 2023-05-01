@@ -1,5 +1,7 @@
 <div class="bg">
+        <img (click)="scrollToTop()" *ngIf="scrolled" class="go-up-icon" src="../assets/img/go-up.png">
 </div>
+
 <mat-toolbar color="primary">
     <nav>
         <div>
@@ -7,8 +9,8 @@
                 <mat-icon>menu</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item [routerLink]="['/pokemon']">Pokémon</button>
-              <button mat-menu-item [routerLink]="['/favorites']">Favorites</button>
+                <button mat-menu-item [routerLink]="['/pokemon']">Pokémon</button>
+                <button mat-menu-item [routerLink]="['/favorites']">Favorites</button>
             </mat-menu>
             <span class="pokedex">Pokédex</span>
             <span class="example-spacer"></span>
@@ -37,5 +39,5 @@
 </div>
 
 <router-outlet>
-    
+
 </router-outlet>

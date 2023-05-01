@@ -1,8 +1,12 @@
 <div class="stat-row">
     <div class="name-container"><span><b>{{ statName }}</b></span></div>
     <div class="progress-container">
-        <app-stat-progress [ngStyle]="{'width': progress}" [progress]="progress"></app-stat-progress>
-        <div class="base-progress">
+        <span>{{ progressAsNumber }}</span>
+        <div class="progress-bar">
+            <app-stat-progress [ngStyle]="{'width': progress}"></app-stat-progress>
+            <div class="base-progress">
+
+            </div>
         </div>
     </div>
 </div>

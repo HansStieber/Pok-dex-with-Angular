@@ -1,5 +1,6 @@
 <div class="card-content {{ type }}" (click)="openDialog()">
     <span>{{ name }}</span>
+    <span class="id"># {{ id }}</span>
     <div class="types-container">
         <div *ngFor="let type of types">
             <div class="type-container">{{ type['type']['name'] }}</div>

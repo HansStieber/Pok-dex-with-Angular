@@ -8,12 +8,14 @@ import { CapitalizeService } from '../services/capitalize.service';
 })
 export class StatComponent implements OnChanges {
   statName!: string;
-  progress!: number;
+  progressAsNumber!: number;
+  progress!: string;
   @Input() stat: any;
 
   ngOnChanges() {
     this.statName = this.capitalizeWord(this.stat['stat']['name']);
-    this.progress = this.stat['base_stat'];
+    this.progressAsNumber = this.stat['base_stat'];
+    this.progress = this.progressAsNumber + 'px';
   }
 
 

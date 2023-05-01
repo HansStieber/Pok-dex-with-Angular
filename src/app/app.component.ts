@@ -22,6 +22,7 @@ export class AppComponent {
   search!: string;
   favorites: Pokemon[] = [];
   route!: string;
+  scrolled: boolean = false;
   @ViewChild('pokesearch') pokesearch!: ElementRef;
 
 
@@ -50,13 +51,13 @@ export class AppComponent {
     this.favoritesData.favorites.subscribe(favorites => {
       this.favorites = favorites;
     });
-
     this.data.currentSearch.subscribe(search => {
       this.search = search;
     });
     this.pokemonData.pokemon.subscribe(pokemon => {
       this.allPokemon = pokemon;
     });
+    this.checkScrollPos();
   }
 
 
@@ -67,21 +68,38 @@ export class AppComponent {
   }
 
 
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
+
   @HostListener('window:scroll', ['$event'])
 
 
   scroll() {
-    this.checkEndOfPage();
+    if (!this.loading) {
+      this.checkEndOfPage();
+    }
   }
 
 
   checkEndOfPage() {
+    this.checkScrollPos();
     if (this.router.url === '/pokemon') {
       this.scrollPos = window.innerHeight + window.scrollY;
       this.scrollLimitBottom = document.body.scrollHeight - 300;
       if (this.closeToEndOfPage()) {
         this.loadPokemon();
       }
+    }
+  }
+
+
+  checkScrollPos() {
+    if (window.scrollY > 200) {
+      this.scrolled = true;
+    } else {
+      this.scrolled = false;
     }
   }
 
@@ -108,7 +126,7 @@ export class AppComponent {
         }, 100);
         setTimeout(() => {
           this.loading = false;
-        }, 1000);
+        }, 500);
       });
   }
 

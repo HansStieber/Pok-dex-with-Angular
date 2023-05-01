@@ -15,6 +15,7 @@ export class PokemonComponent {
   @Input() url!: string;
   details: Details = new Details();
   name!: any;
+  id!: number;
   types: any;
   type!: string;
   imgUrl!: string;
@@ -35,6 +36,7 @@ export class PokemonComponent {
         this.details = new Details(data);
         this.name = this.capitalizeWord(this.details.name);
         this.types = this.details.types;
+        this.id = this.details.id;
         this.type = this.types[0]['type']['name'];
         let imgs: any = this.details['sprites'];
         this.imgUrl = imgs['other']['official-artwork']['front_default'];
