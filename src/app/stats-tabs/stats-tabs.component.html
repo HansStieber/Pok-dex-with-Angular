@@ -21,6 +21,8 @@
         </div>
     </mat-tab>
     <mat-tab label="Moves">
-
+        <div class="moves-container">
+            <app-move [move]="move" *ngFor="let move of moves"></app-move>
+        </div>
     </mat-tab>
 </mat-tab-group>

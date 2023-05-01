@@ -30,6 +30,7 @@ import { CapitalizeService } from './services/capitalize.service';
 import { StatsTabsComponent } from './stats-tabs/stats-tabs.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { StatComponent } from './stat/stat.component';
+import { MoveComponent } from './move/move.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { StatComponent } from './stat/stat.component';
     PokemonFavoritesComponent,
     DetailViewComponent,
     StatsTabsComponent,
-    StatComponent
+    StatComponent,
+    MoveComponent
   ],
   imports: [
     BrowserModule,

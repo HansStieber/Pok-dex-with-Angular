@@ -11,6 +11,7 @@ export class StatsTabsComponent implements OnChanges {
   height!: number;
   weight!: number;
   stats!: object[];
+  moves!: object[];
   @Input() details!: Details;
 
   ngOnChanges(): void {
@@ -18,5 +19,6 @@ export class StatsTabsComponent implements OnChanges {
     this.height = this.details['height'] / 10;
     this.weight = this.details['weight'] / 10;
     this.stats = this.details['stats'];
+    this.moves = this.details['moves'];
   }
 }
