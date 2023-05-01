@@ -25,6 +25,7 @@ export class DetailViewComponent implements OnInit {
   alreadyFavorite: boolean = false;
   imgUrl!: string;
 
+
   constructor(
     private dialogRef: MatDialogRef<DetailViewComponent>,
     private http: HttpClient,
@@ -34,6 +35,7 @@ export class DetailViewComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) { }
 
+
   ngOnInit(): void {
     this.data.pokemon.subscribe(pokemon => {
       this.allPokemon = pokemon;
@@ -41,13 +43,18 @@ export class DetailViewComponent implements OnInit {
     this.favoritesData.favorites.subscribe(favorites => {
       this.favorites = favorites;
     });
+    this.getDetails();
+    this.checkIfPokemonIsFavorite();
+  }
+
+
+  getDetails() {
     this.types = this.details.types[0];
     this.type = this.types['type']['name'];
     this.id = this.details.id;
     this.name = this.capitalizeWord(this.details.name);
     let imgs: any = this.details['sprites'];
     this.imgUrl = imgs['other']['official-artwork']['front_default'];
-    this.checkIfPokemonIsFavorite();
   }
 
 
@@ -57,7 +64,7 @@ export class DetailViewComponent implements OnInit {
   }
 
   nextPokemon() {
-    if (this.router.url === '/pokemon') {
+    if (this.router.url === '/pokemon' || this.router.url === '/') {
       let index = this.details.id;
       if (index > this.allPokemon.length - 1) {
         index = 0;
@@ -67,12 +74,7 @@ export class DetailViewComponent implements OnInit {
         .get<any>(newPokemon.url)
         .subscribe(data => {
           this.details = new Details(data);
-          this.types = this.details.types[0];
-          this.type = this.types['type']['name'];
-          this.id = this.details.id;
-          let imgs: any = this.details['sprites'];
-          this.imgUrl = imgs['other']['official-artwork']['front_default'];
-          this.name = this.capitalizeWord(this.details.name);
+          this.getDetails();
           this.checkIfPokemonIsFavorite();
         });
     }
@@ -88,12 +90,7 @@ export class DetailViewComponent implements OnInit {
             .get<any>(newPokemon.url)
             .subscribe(data => {
               this.details = new Details(data);
-              this.types = this.details.types[0];
-              this.type = this.types['type']['name'];
-              this.id = this.details.id;
-              let imgs: any = this.details['sprites'];
-              this.imgUrl = imgs['other']['official-artwork']['front_default'];
-              this.name = this.capitalizeWord(this.details.name);
+              this.getDetails();
               this.checkIfPokemonIsFavorite();
             });
         }
@@ -102,18 +99,13 @@ export class DetailViewComponent implements OnInit {
   }
 
   previousPokemon() {
-    if (this.router.url === '/pokemon') {
+    if (this.router.url === '/pokemon' || this.router.url === '/') {
       let newPokemon = new Pokemon(this.allPokemon[this.details.id - 2]);
       this.http
         .get<any>(newPokemon.url)
         .subscribe(data => {
           this.details = new Details(data);
-          this.types = this.details.types[0];
-          this.type = this.types['type']['name'];
-          this.id = this.details.id;
-          let imgs: any = this.details['sprites'];
-          this.imgUrl = imgs['other']['official-artwork']['front_default'];
-          this.name = this.capitalizeWord(this.details.name);
+          this.getDetails();
           this.checkIfPokemonIsFavorite();
         });
     }
@@ -129,12 +121,7 @@ export class DetailViewComponent implements OnInit {
             .get<any>(newPokemon.url)
             .subscribe(data => {
               this.details = new Details(data);
-              this.types = this.details.types[0];
-              this.type = this.types['type']['name'];
-              this.id = this.details.id;
-              let imgs: any = this.details['sprites'];
-              this.imgUrl = imgs['other']['official-artwork']['front_default'];
-              this.name = this.capitalizeWord(this.details.name);
+              this.getDetails();
               this.checkIfPokemonIsFavorite();
             });
         }

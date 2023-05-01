@@ -151,7 +151,7 @@ export class AppComponent {
 
 
   setHeadline() {
-    if (this.router.url === '/pokemon') {
+    if (this.router.url === '/pokemon' || this.router.url === '/') {
       this.route = 'All Pokémon';
     }
     if (this.router.url === '/favorites') {
