@@ -85,7 +85,7 @@ export class AppComponent {
 
   checkEndOfPage() {
     this.checkScrollPos();
-    if (this.router.url === '/pokemon') {
+    if (this.router.url === '/pokemon'|| this.router.url === '/') {
       this.scrollPos = window.innerHeight + window.scrollY;
       this.scrollLimitBottom = document.body.scrollHeight - 300;
       if (this.closeToEndOfPage()) {

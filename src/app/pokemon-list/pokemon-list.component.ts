@@ -22,5 +22,6 @@ export class PokemonListComponent {
     this.pokemonData.pokemon.subscribe(pokemon => {
       this.allPokemon = pokemon;
     });
+    console.log(this.allPokemon)
   }
 }
