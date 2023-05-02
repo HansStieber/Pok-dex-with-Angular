@@ -114,6 +114,10 @@ nav {
     filter: opacity(0.3);
     transition: all 125ms ease-in-out;
 
+    @media screen and (max-width: 400px) {
+        display: none;
+    }
+
     &:hover {
         cursor: pointer;
         filter: opacity(0.8);
