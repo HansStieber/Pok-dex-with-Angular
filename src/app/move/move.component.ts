@@ -9,6 +9,10 @@ export class MoveComponent implements OnInit {
  @Input() move!: any;
  name!: string;
 
+
+ /**
+  * The function sets the name variable to the name of the current move object.
+  */
  ngOnInit(): void {
    this.name = this.move['move']['name'];
  }

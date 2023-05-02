@@ -218,7 +218,7 @@ export class DetailViewComponent implements OnInit {
     }
   }
 
-
+ 
   /**
    * The function selects the next Pokemon of the favorites array, before it removes the current pokemon from the
    * favorites array by using the removeFavorites function of the favorites service. It sets the alreadyFavorite variable

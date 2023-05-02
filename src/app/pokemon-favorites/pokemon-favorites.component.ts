@@ -12,12 +12,21 @@ export class PokemonFavoritesComponent {
   search!: string;
   favorites: Pokemon[] = [];
 
-  constructor(private favoritesData: FavoritesService, private searchData: SearchService) { }
 
+  constructor(
+    private favoritesData: FavoritesService,
+    private searchData: SearchService
+  ) { }
+
+
+  /**
+   * This function runs when the component gets initialized. It subscribes to the search and favorites services, wich provide information of
+   * current input at the search input field and current favorite pokemon.
+   */
   ngOnInit(): void {
     this.searchData.currentSearch.subscribe(search => {
-    this.search = search;
-  });
+      this.search = search;
+    });
     this.favoritesData.favorites.subscribe(favorites => {
       this.favorites = favorites;
     });
