@@ -149,12 +149,12 @@ export class DetailViewComponent implements OnInit {
   }
 
 
-    /**
-   * This function selects the previous Pokemon from the favorites array. This is achieved by searching the array for the name
-   * of the current pokemon, getting the index of that pokemon at the favorites array and subtracting 1 of it. The new
-   * index is used to get the next pokemon from the favorites array. If the new index is lower than 0, the last pokemon
-   * of the array is picked. The new Pokemon is subscribed to get the details of the new/previous Pokemon.
-   */
+  /**
+ * This function selects the previous Pokemon from the favorites array. This is achieved by searching the array for the name
+ * of the current pokemon, getting the index of that pokemon at the favorites array and subtracting 1 of it. The new
+ * index is used to get the next pokemon from the favorites array. If the new index is lower than 0, the last pokemon
+ * of the array is picked. The new Pokemon is subscribed to get the details of the new/previous Pokemon.
+ */
   getPreviousPokemonFromFavorites() {
     this.favorites.forEach(pokemon => {
       if (pokemon.name === this.details.name) {
@@ -218,7 +218,7 @@ export class DetailViewComponent implements OnInit {
     }
   }
 
- 
+
   /**
    * The function selects the next Pokemon of the favorites array, before it removes the current pokemon from the
    * favorites array by using the removeFavorites function of the favorites service. It sets the alreadyFavorite variable
@@ -226,7 +226,9 @@ export class DetailViewComponent implements OnInit {
    * If the favorites array is empty, the detail view dialog is closed.
    */
   removeFromFavorites() {
-    this.nextPokemon();
+    if (this.router.url === '/favorites') {
+      this.nextPokemon();
+    }
     this.favoritesData.removeFavorites(this.details);
     this.alreadyFavorite = false;
     let serializedArray = JSON.stringify(this.favorites);
