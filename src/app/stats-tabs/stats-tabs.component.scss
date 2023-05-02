@@ -1,9 +1,17 @@
 table {
     margin: 20px;
+
+    @media screen and (max-width: 475px) {
+        font-size: 12px;
+    }
 }
 
 tr {
     height: 30px;
+
+    @media screen and (max-width: 475px) {
+        height: 20px;
+    }
 
     b {
         margin-right: 30px;

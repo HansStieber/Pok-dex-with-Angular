@@ -2,10 +2,19 @@
     height: 30px;
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 475px) {
+        height: 25px;
+        font-size: 10px;
+    }
 }
 
 .name-container {
     width: 150px;
+
+    @media screen and (max-width: 475px) {
+        width: 90px;
+    }
 }
 
 .progress-container {
@@ -25,6 +34,14 @@
     background-color: #ededed;
     width: 170px;
     height: 4px;
+
+    @media screen and (max-width: 475px) {
+        width: 140px;
+    }
+}
+
+.stat-container {
+    overflow: auto;
 }
 
 app-stat-progress {

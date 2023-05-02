@@ -14,13 +14,13 @@
             </mat-menu>
             <span class="pokedex">Pokédex</span>
             <span class="example-spacer"></span>
-            <button class="red-button" mat-icon-button [routerLink]="['/favorites']">
+            <button class="red-button favorite-icon" mat-icon-button [routerLink]="['/favorites']">
                 <mat-icon>favorite</mat-icon>
             </button>
         </div>
         <span class="current-route">{{ route }}</span>
         <div>
-            <button (click)="focusSearchInput()" mat-icon-button>
+            <button class="search-icon" (click)="focusSearchInput()" mat-icon-button>
                 <mat-icon>search</mat-icon>
             </button>
             <mat-form-field class="search-form-field margin-bottom-27px">

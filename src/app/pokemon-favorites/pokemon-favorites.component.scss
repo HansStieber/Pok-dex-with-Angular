@@ -4,6 +4,10 @@
     display: flex;
     justify-content: center;
 
+    @media screen and (max-width: 992px) {
+        margin-top: 20px;
+    }
+
     section {
         width: 100%;
         max-width: 1350px;
@@ -12,6 +16,14 @@
         flex-wrap: wrap;
         gap: 30px;
         padding: 0 32px;
+
+        @media screen and (max-width: 992px) {
+            gap: 20px;
+        }
+
+        @media screen and (max-width: 420px) {
+           padding: 0;
+        }
     }
 }
 

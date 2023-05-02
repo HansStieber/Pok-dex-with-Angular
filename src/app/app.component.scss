@@ -9,10 +9,30 @@ mat-toolbar {
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
+
+    @media screen and (max-width: 800px) {
+        padding: 0 16px 0 0;
+    }
+}
+
+.favorite-icon {
+    @media screen and (max-width: 370px) {
+        display: none;
+    }
+}
+
+.search-icon {
+    @media screen and (max-width: 420px) {
+        display: none;
+    }
 }
 
 .search-form-field {
     width: 250px;
+
+    @media screen and (max-width: 800px) {
+        width: 160px;
+    }
 }
 
 nav {
@@ -48,7 +68,15 @@ nav {
 }
 
 .current-route {
-    margin-left: 120px;
+    margin-left: 75px;
+
+    @media screen and (max-width: 800px) {
+        width: 160px;
+    }
+
+    @media screen and (max-width: 700px) {
+        display: none;
+    }
 }
 
 .loader img {
