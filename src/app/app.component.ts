@@ -36,6 +36,7 @@ export class AppComponent {
     router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.setHeadline();
+        this.checkEndOfPage();
       }
     })
   }
@@ -49,7 +50,6 @@ export class AppComponent {
    * position.
    */
   ngOnInit() {
-    this.checkEndOfPage();
     this.getFavoritesFromStorage();
     this.favoritesData.changeFavorites(this.favorites);
 
