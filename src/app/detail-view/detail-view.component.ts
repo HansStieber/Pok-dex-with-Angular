@@ -223,7 +223,7 @@ export class DetailViewComponent implements OnInit {
    * The function selects the next Pokemon of the favorites array, before it removes the current pokemon from the
    * favorites array by using the removeFavorites function of the favorites service. It sets the alreadyFavorite variable
    * to false (the heart icon at the details variable changes) and the favorites array is saved at the localStorage.
-   * If the favorites array is empty, the detail view dialog is closed.
+   * If the favorites array is empty, the detail view dialog is then closed.
    */
   removeFromFavorites() {
     if (this.router.url === '/favorites') {
