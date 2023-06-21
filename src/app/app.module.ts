@@ -31,6 +31,7 @@ import { StatsTabsComponent } from './stats-tabs/stats-tabs.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { StatComponent } from './stat/stat.component';
 import { MoveComponent } from './move/move.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MoveComponent } from './move/move.component';
     DetailViewComponent,
     StatsTabsComponent,
     StatComponent,
-    MoveComponent
+    MoveComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,6 @@ import { MoveComponent } from './move/move.component';
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
-    Ng2SearchPipeModule,
     MatTabsModule
   ],
   providers: [
