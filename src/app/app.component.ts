@@ -105,7 +105,7 @@ export class AppComponent {
    */
   checkEndOfPage() {
     this.checkScrollPos();
-    if (this.router.url === '/pokemon' || this.router.url === '/') {
+    if (this.router.url === '/pokemon' || this.router.url === '/' && this.search === '') {
       if (this.closeToEndOfPage()) {
         this.loadPokemon();
       }
