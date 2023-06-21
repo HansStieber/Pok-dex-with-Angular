@@ -145,10 +145,10 @@ export class AppComponent {
     this.loading = true;
     this.http
       .get<any>(this.URL)
-      .subscribe(data => {
-        this.newPokemon = data['results'];
+      .subscribe((data: any) => {
+        this.newPokemon = data.results;
         this.pushObjects(this.newPokemon, this.allPokemon)
-        this.URL = data['next'];
+        this.URL = data.next;
         this.pokemonData.changePokemon(this.allPokemon);
         this.eventuallyLoadMorePokemon();
         this.hideLoader();

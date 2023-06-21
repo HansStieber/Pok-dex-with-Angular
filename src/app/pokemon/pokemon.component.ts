@@ -35,7 +35,7 @@ export class PokemonComponent {
   async ngOnInit() {
     this.http
       .get<any>(this.url)
-      .subscribe(data => {
+      .subscribe((data: any) => {
         this.details = new Details(data);
         this.getDetails();
       });
@@ -47,11 +47,11 @@ export class PokemonComponent {
    */
   getDetails() {
     this.types = this.details.types;
-    this.type = this.types[0]['type']['name'];
+    this.type = this.types[0].type.name;
     this.id = this.details.id;
     this.name = this.capitalizeWord(this.details.name);
-    let imgs: any = this.details['sprites'];
-    this.imgUrl = imgs['other']['official-artwork']['front_default'];
+    let imgs: any = this.details.sprites;
+    this.imgUrl = imgs.other['official-artwork']['front_default'];
   }
 
 
